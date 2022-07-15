@@ -1,12 +1,13 @@
+
 import { useEffect } from "react";
 import NewsCarousel from "./components/Carousel";
 import TopNews from "./components/TopNews";
 import { useState } from "react";
-
+import Header from "./components/header/Header";
 function App() {
   const [newsdata, setNewsData] = useState("");
-  const [topNews, setTopNews] = useState("");
-  const [subNews, setSubNews] = useState("");
+  // const [topNews, setTopNews] = useState("");
+  // const [subNews, setSubNews] = useState("");
 
   useEffect(() => {
     async function fetchNews() {
@@ -20,9 +21,22 @@ function App() {
     fetchNews();
   }, []);
 
+  const [lightMode, setLightMode] = useState(false);
+
+  function modeSwitch() {
+    if (lightMode) {
+      setLightMode(false);
+    } else {
+      setLightMode(true);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div className="App"
+    style={{ backgroundColor: `${lightMode ? "#3F4E4F" : "white"}` }}
+    >
+  
+      <header className="App-header"><Header modeSwitch={modeSwitch} lightMode={lightMode} /></header>
 
       {newsdata?<TopNews
         title={newsdata.results[0].title}
@@ -32,7 +46,10 @@ function App() {
         link={newsdata.results[0].link}
       /> : 'loading...'}
       {newsdata ? <NewsCarousel newsdata={newsdata.results} /> : "news loading"}
-    </div>
+      </div>
+
+
+   
   );
 }
 
