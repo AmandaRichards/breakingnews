@@ -1,11 +1,13 @@
-import React from "react";
+import {React,useState,useEffect} from "react";
+import {logoImg} from "../header/Darkmode Logo.svg"
 // import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import NewsItem from "../NewsItem";
 import css from "./index.module.css";
 
-const NewsCarousel = ({ newsdata }) => {
+const NewsCarousel = ({ newsdata,lightMode }) => {
+
   return (
     <Carousel>
       <div className={css.carousel}>
@@ -17,6 +19,7 @@ const NewsCarousel = ({ newsdata }) => {
                   url={news.image_url}
                   description={news.description}
                   link={news.link}
+                  lightMode={lightMode}
                 />
               );
             })

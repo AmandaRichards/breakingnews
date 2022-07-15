@@ -12,7 +12,7 @@ const NewsItem = ({title, url, alt, description, link,lightMode}) => {
     }
   },[url])
 
-
+console.log(lightMode)
   return (
     <>
       {/* <img src={logoImg}></img> */}
@@ -23,7 +23,7 @@ const NewsItem = ({title, url, alt, description, link,lightMode}) => {
         <div className={Style.infoContainer}>
           <p
             className={Style.infoContainerP}
-            style={{ color: `${lightMode ? "black" : "white"}` }}
+            style={{ color: `${lightMode ? "white" : "black"}` }}
           >
             {title}
           </p>
@@ -33,7 +33,7 @@ const NewsItem = ({title, url, alt, description, link,lightMode}) => {
             <a
               href={link}
               className={Style.infoContainerlinkStyle}
-              style={{ color: `${lightMode ? "black" : "white"}` }}
+              style={{ color: `${lightMode ? "white" : "black"}` }}
             >
               Link to Article
             </a>

@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App"
-    style={{ backgroundColor: `${lightMode ? "#3F4E4F" : "white"}` }}
+    style={{ backgroundColor: `${lightMode ? "#3F4E4F" : "white"}`, padding:'.5rem' }}
     >
   
       <header className="App-header"><Header modeSwitch={modeSwitch} lightMode={lightMode} /></header>
@@ -45,7 +45,8 @@ function App() {
         description={newsdata.results[0].description}
         link={newsdata.results[0].link}
       /> : 'loading...'}
-      {newsdata ? <NewsCarousel newsdata={newsdata.results} /> : "news loading"}
+      <h4>Top News</h4>
+      {newsdata ? <NewsCarousel newsdata={newsdata.results} lightMode={lightMode}/> : "news loading"}
       </div>
 
 
