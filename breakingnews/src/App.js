@@ -13,9 +13,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ backgroundColor: `${lightMode ? "#3F4E4F" : "white"}` }}
+    >
       <header className="App-header">
-        <Header modeSwitch={modeSwitch} lightMode={lightMode}/>
+        <Header modeSwitch={modeSwitch} lightMode={lightMode} />
       </header>
     </div>
   );

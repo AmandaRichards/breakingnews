@@ -1,7 +1,9 @@
 import React from "react";
 import style from "./header.module.css";
+import Lightmode from "./Lightmode Logo.svg";
+import Darkmode from "./Darkmode Logo.svg";
 import { useState, useEffect } from "react";
-import { FaLightbulb, FaRegMoon } from "react-icons/fa";
+import { FaLightbulb, FaMoon } from "react-icons/fa";
 const Header = ({ modeSwitch, lightMode }) => {
   const [width, setWidth] = useState("");
 
@@ -18,10 +20,17 @@ const Header = ({ modeSwitch, lightMode }) => {
   return (
     <div className={style.mainBackground} style={{ width: `${width}px` }}>
       <div className={style.logoContainer}>
-        <p>Breaking News</p>
+
+        <img src={lightMode?Darkmode:Lightmode} alt="header" />
       </div>
       <div className={style.buttonContainer}>
-        <button>{lightMode ? <FaLightbulb /> : <FaRegMoon />}</button>
+        <button onClick={modeSwitch}>
+          {lightMode ? (
+            <FaLightbulb className={style.bulb} />
+          ) : (
+            <FaMoon className={style.moon} />
+          )}
+        </button>
       </div>
     </div>
   );
