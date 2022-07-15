@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     async function fetchNews() {
       const response = await fetch(
-        `https://newsdata.io/api/1/news?apikey=pub_92334fbd10ab257e1bbdc1c1e462a8b2dce2&language=en`
+        `https://newsdata.io/api/1/news?apikey=pub_92393898af6aff5e74f2ed7432c80cb81c25&language=en`
       );
       const data = await response.json();
       console.log(data);
