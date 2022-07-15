@@ -1,0 +1,55 @@
+/* tile */
+.mainTileWrapper{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+   
+}
+.tileWrapper{
+    /* background-color: pink; */
+    width:200px;
+    margin:1rem;
+    height: auto;
+    /* border:1px solid ; */
+   
+}
+.imgHolder{
+    max-height: 200px;
+    min-height: 100px;
+    background-color: transparent;
+}
+.infoContainer{
+    padding:.5rem;
+   height: 200px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   /* background-color: red; */
+}
+.infoContainerP{
+    color:black;
+}
+.infoContainerDesc{
+    color:black;
+}
+.infoContainerlinkStyle{
+    text-decoration: none;
+    color:red;
+    width:100px;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+    text-align: end;
+}
+.infoContainerlinkStyle:hover{
+    color:blue;
+}
+.linkContainer{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: end;
+}
+.darkmodeFont{
+    color:white;
+}

@@ -1,14 +1,47 @@
 import React from 'react'
+import Style from "./index.module.css"
+import {useState,useEffect} from 'react';
+import logoImg from "../header/Lightmode Logo.svg"
+const NewsItem = ({title, url, alt, description, link,lightMode}) => {
+  console.log(url)
+  const [image,setImage]=useState(url);
 
-const NewsItem = ({title, url, alt, description, link}) => {
+  useEffect(()=>{
+    if(image === null){
+      setImage(logoImg)
+    }
+  },[url])
+
+
   return (
-    <div>
-         <h1>{title}</h1>
-        <img src={url} alt={alt}/>
-        <p>{description}</p>
-       <a href={link}><p>Learn More</p> </a>
-    </div>
-  )
+    <>
+      {/* <img src={logoImg}></img> */}
+      <div className={Style.tileWrapper}>
+        <div className={Style.imgHolder}>
+          <img src={image} alt="news headline"></img>
+        </div>
+        <div className={Style.infoContainer}>
+          <p
+            className={Style.infoContainerP}
+            style={{ color: `${lightMode ? "black" : "white"}` }}
+          >
+            {title}
+          </p>
+
+          {/* <p className={Style.infoContainerDesc}>{description}</p> */}
+          <div className={Style.linkContainer}>
+            <a
+              href={link}
+              className={Style.infoContainerlinkStyle}
+              style={{ color: `${lightMode ? "black" : "white"}` }}
+            >
+              Link to Article
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default NewsItem
