@@ -1,19 +1,19 @@
-import React from 'react'
-import style from "./header.module.css"
-import {useState,useEffect} from "react";
-const Header = ({modeSwitch,lightMode}) => {
+import React from "react";
+import style from "./header.module.css";
+import { useState, useEffect } from "react";
+import { FaLightbulb, FaRegMoon } from "react-icons/fa";
+const Header = ({ modeSwitch, lightMode }) => {
+  const [width, setWidth] = useState("");
 
-  const [width,setWidth] = useState("");
+  useEffect(() => {
+    function widthDynamic() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", widthDynamic);
 
-  useEffect(()=>{
-    function widthDynamic(){
-      setWidth(window.innerWidth)
-    };
-    window.addEventListener("resize",widthDynamic)
-
-    widthDynamic()
-    console.log(width)
-  },[width])
+    widthDynamic();
+    console.log(width);
+  }, [width]);
   // console.log(modeSwitch,lightMode)
   return (
     <div className={style.mainBackground} style={{ width: `${width}px` }}>
@@ -21,10 +21,10 @@ const Header = ({modeSwitch,lightMode}) => {
         <p>Breaking News</p>
       </div>
       <div className={style.buttonContainer}>
-        <button>light switch</button>
+        <button>{lightMode ? <FaLightbulb /> : <FaRegMoon />}</button>
       </div>
     </div>
   );
-}
+};
 
-export default Header
+export default Header;
