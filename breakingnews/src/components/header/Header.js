@@ -20,7 +20,8 @@ const Header = ({ modeSwitch, lightMode }) => {
   return (
     <div className={style.mainBackground} style={{ width: `${width}px` }}>
       <div className={style.logoContainer}>
-        <img src={Lightmode} alt="header" />
+
+        <img src={lightMode?Darkmode:Lightmode} alt="header" />
       </div>
       <div className={style.buttonContainer}>
         <button onClick={modeSwitch}>
